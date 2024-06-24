@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ST10102963_CLDV.Models.OrderStatusViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+   
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ST10102963_CLDV.styles.css" asp-append-version="true" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<h1>List Of Order Status</h1>
+
+<p>
+        <a asp-action="Create" class="btn btn-success a-btn-slide-text">
+            <i class="bi bi-plus-circle"></i> Create New
+        </a>
+</p>
+
+    <partial name="_pageOrderStatus" model="@pager" />
+
+    <div class="box2">
+        <table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th>
+                Order Status ID
+            </th>
+            <th>
+                Order Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStatusID)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusName)
+                </td>
+            <td>
+                            <a asp-action="Edit" asp-route-id="@item.OrderStatusID" class="btn btn-warning a-btn-slide-text">
+                                <i class="bi bi-pencil-square"></i>Edit
+                            </a> |
+                            <a asp-action="Details" asp-route-id="@item.OrderStatusID" class="btn btn-primary a-btn-slide-text">
+                                <i class="bi bi-eye"></i>Details
+                            </a> |
+                            <a asp-action="Delete" asp-route-id="@item.OrderStatusID" class="btn btn-danger a-btn-slide-text">
+                                <i class="bi bi-trash"></i>Delete
+                            </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+
+    <partial name="_pageOrderStatus" model="@pager" />
+</body>
+</html>

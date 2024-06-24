@@ -1,0 +1,129 @@
+﻿@model IEnumerable<ST10102963_CLDV.Models.OrderDetailsViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+
+    /*  Code reference: https://youtu.be/O57nsLyZubc?si=dFWp2kaoQykl0Aqm */
+
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+   </style>
+
+<link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+<link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+
+<h1>List Of Order Details</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success a-btn-slide-text">
+        <i class="bi bi-plus-circle"></i> Create New
+    </a>
+</p>
+
+<partial name="_pageOrderDetails" model="@pager" />
+
+<div class="box2">
+    <table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th>
+                Order Detail ID
+            </th>
+
+            <th>
+                Quantity
+            </th>
+            <th>
+                Unity Price
+            </th>
+            <th>
+               Client Email
+            </th>
+            <th>
+                Order ID
+            </th>
+             
+            <th>
+                Product ID
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Order Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDetailID)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            <td>
+               R @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrdersViewModel.OrderID)
+            </td>
+                
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductsViewModel.ProductID)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductsViewModel.ProductName)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStatusViewModel.StatusName)
+            </td>
+            <td>
+                        <a asp-action="Edit" asp-route-id="@item.OrderDetailID" class="btn btn-warning a-btn-slide-text">
+                            <i class="bi bi-pencil-square"></i>Edit
+                        </a> |
+                        <a asp-action="Details" asp-route-id="@item.OrderDetailID" class="btn btn-primary a-btn-slide-text">
+                            <i class="bi bi-eye"></i>Details
+                        </a> |
+                        <a asp-action="Delete" asp-route-id="@item.OrderDetailID" class="btn btn-danger a-btn-slide-text">
+                            <i class="bi bi-trash"></i>Delete
+                        </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+
+
+<partial name="_pageOrderDetails" model="@pager" />

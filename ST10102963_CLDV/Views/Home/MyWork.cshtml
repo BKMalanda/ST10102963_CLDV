@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewData["Title"] = "MyWork";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Work</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .item {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+            .item img {
+                width: 100%;
+                height: auto;
+            }
+
+        .item-info {
+            padding: 10px;
+        }
+
+            .item-info h3 {
+                margin-top: 0;
+            }
+
+            .item-info p {
+                margin-bottom: 5px;
+            }
+
+            .item-info .price {
+                font-weight: bold;
+                color: #333;
+            }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Work</h1>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <div class="item">
+                <img src="https://schemesint.com/wp-content/uploads/2021/06/images.jpeg-820.jpg" alt="Craftwork 1">
+                <div class="item-info">
+                    <h3>Woodworker</h3>
+                    <p>Woodworking is the skill of making items from wood, and includes cabinetry, furniture making, wood carving, joinery, carpentry, and woodturning.</p>
+                    <p class="price">R900.00</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://www.farmersmuseum.org/wp-content/uploads/2019/02/mask-group-10.jpg" alt="Craftwork 2">
+                <div class="item-info">
+                    <h3>Blacksmith</h3>
+                    <p>a metalsmith who creates objects primarily from wrought iron or steel, but sometimes from other metals, by forging the metal, using tools to hammer, bend, and cut.</p>
+                    <p class="price">R1500.00</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://images.squarespace-cdn.com/content/v1/6067746a266f940bd62ff94b/1666391618115-4GTFRDWZQDO1ZG1ZMXMT/image+%283%29.jpeg" alt="Craftwork 3">
+                <div class="item-info">
+                    <h3>Iron Worker</h3>
+                    <p>Ironworkers assemble the structural framework in accordance with engineered drawings and install the metal support pieces for new buildings.</p>
+                    <p class="price">R1900.00</p>
+                </div>
+            </div>
+            <!-- Add more items as needed -->
+        </div>
+    </div>
+
+</body>
+</html>
+
+

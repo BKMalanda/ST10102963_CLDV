@@ -1,0 +1,156 @@
+﻿@model IEnumerable<ST10102963_CLDV.Models.ProductsViewModel>
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.RazorPages
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+
+    Pager pager = new Pager();
+
+    int pageNo = 0;
+
+    if(ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center; 
+    }
+
+    
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ST10102963_CLDV.styles.css" asp-append-version="true" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<h1>List Of Products</h1>
+
+<p>
+        <a asp-action="Create" class="btn btn-success a-btn-slide-text">
+            <i class="bi bi-plus-circle"></i>Create New
+        </a>
+</p>
+<br />
+
+    <form asp-action="Search" method="get">
+        <div class="form-group">
+            <input type="text" name="searchText" class="form-control" placeholder="Search products...">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <br/>
+
+    <partial name="_pager" model="@pager" />
+    <br/>
+
+    <div class="box2">
+        <table c class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th>
+                Product ID
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+               Product Price
+            </th>
+            <th>
+               Product Availability
+            </th>
+            <th>
+                Category ID
+            </th>
+            <th>
+               Category Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+            <td>
+                R @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Availability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriesViewModel.CategoryID)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriesViewModel.CategoryName)
+                </td>
+          
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                    <td>
+                                <a asp-action="Edit" asp-route-id="@item.ProductID" class="btn btn-warning a-btn-slide-text">
+                                    <i class="bi bi-pencil-square"></i>Edit
+                                </a> |
+                                <a asp-action="Details" asp-route-id="@item.ProductID" class="btn btn-primary a-btn-slide-text">
+                                    <i class="bi bi-eye"></i>Details
+                                </a> |
+                                <a asp-action="Delete" asp-route-id="@item.ProductID" class="btn btn-danger a-btn-slide-text">
+                                    <i class="bi bi-trash"></i>Delete
+                                </a>
+                    </td>
+                }
+
+
+                else if (User.IsInRole("Client"))
+                {
+                   <td>
+                        <form asp-action="PlaceOrder" method="post" style="display:inline">
+                            <input type="hidden" name="productId" value="@item.ProductID" />
+                            <button type="submit" class="btn btn-primary">Place Order</button>
+                        </form>
+                   </td>
+                }
+           
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+
+<partial name="_pager" model="@pager"/>
+
+</body>
+</html>

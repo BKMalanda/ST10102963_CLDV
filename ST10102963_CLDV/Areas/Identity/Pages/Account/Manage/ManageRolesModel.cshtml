@@ -1,0 +1,16 @@
+﻿@page
+@using YourNamespace.Areas.Identity.Pages.Account.Manage;
+@model ManageRolesModel
+@{
+    ViewData["Title"] = "Manage Roles";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.RoleNames"></label>
+        <select asp-for="Input.RoleNames" class="form-control" asp-items="@Model.RoleNames" multiple></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Roles</button>
+</form>

@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            flex-basis: calc(33.33% - 20px);
+            margin-bottom: 20px;
+        }
+
+        .team-member img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        @@media (max-width: 768px) {
+            .team-member {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>About Us</h1>
+</header>
+
+<div class="container">
+        <img src="https://i.ytimg.com/vi/Rwk-toeRL_A/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDokXhgs7C0uTM4G5b27vHfL1OoIA" />
+    <p>Welcome to my website! We are a team of passionate craftsmen dedicated to creating unique and high-quality products. With years of experience and expertise in our craft, we strive to deliver exceptional value to our customers.</p>
+
+    <h2>Meet Our Team</h2>
+    <div class="team">
+        <div class="team-member">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjVX67OTODpA-4LrvERtGxGngUAlf7S7dDjOV8hcqNlw&s" />
+            <h3>John Doe</h3>
+            <p>Woodworker</p>
+        </div>
+        <div class="team-member">
+            <img src="https://st4.depositphotos.com/1662991/31514/i/450/depositphotos_315146284-stock-photo-portrait-handsome-smiling-latin-man.jpg" />
+            <h3>James Smith</h3>
+            <p>Blacksmith</p>
+        </div>
+        <div class="team-member">
+             <img src="https://st4.depositphotos.com/12982378/i/600/depositphotos_308819686-stock-photo-positive-woman-pointing-finger-isolated.jpg" />
+            <h3>Emily Brown</h3>
+            <p>Weaver</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+

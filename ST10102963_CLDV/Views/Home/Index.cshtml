@@ -1,0 +1,113 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KhumaloCrafts Emporium</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+            nav a {
+                color: #fff;
+                text-decoration: none;
+                padding: 10px 20px;
+            }
+
+                nav a:hover {
+                    background-color: #555;
+                }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .main-content {
+            flex: 3;
+            background-color: #fff;
+            padding: 20px;
+            margin-right: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #ddd;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>KhumaloCrafts Emporium</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">My Work</a>
+        <a href="#">Contact Us</a>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>Welcome to KhumaloCrafts Emporium</h2>
+            <p>
+                I am an artisan and a skilled tradesperson who creates products or goods by hand, using traditional techniques and tools. I possess specialized knowledge and skills in my particular craft, whether it's woodworking, metalworking, pottery, weaving, leatherworking, or another discipline.
+
+                My skills and expertise have been honed over years of training and apprenticeship to master my craft. I have a deep understanding of materials, techniques, and processes specific to my trade, allowing me to produce unique, high-quality products valued for their craftsmanship, attention to detail, and artistic expression.
+
+                I take pride in preserving traditional crafts and techniques that have been passed down through generations. Incorporating cultural and historical elements into my work, I play a crucial role in keeping these traditions alive and relevant.
+            </p>
+        </div>
+
+        <div class="sidebar">
+            <h3>Latest Hand Crafted Products</h3>
+            <ul>
+                <li>Product 1</li>
+                <li>Product 2</li>
+                <li>Product 3</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Craftsmen Website. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
